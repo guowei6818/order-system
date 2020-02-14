@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2019-12-01 11:15:11
- * @LastEditTime: 2019-12-01 14:42:27
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-02-14 16:19:21
+ * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \order-system\README.md
  -->
@@ -12,7 +12,7 @@
 ## 实现方式
 
 * 后端：使用nodejs + express + sqlite3 + socket.io
-* 前端：使用React + element-React
+* 前端：使用React + antd
 
 ### 主要功能
 
@@ -38,7 +38,7 @@
     1. 数据库表分为：users(商户个人信息)，orders(客户订单)，foods(餐厅菜品),desks(餐厅桌面)
     2. 可对每个表进行增删改查操作，返回接口都已完善。
 
-* 前端页面使用React组件，Element-React组件实现
+* 前端页面使用React组件，antd组件实现
     1. 页面整体采用flex伸缩布局，可根据内容自动调整页面宽高
     2. 因个组件之间传递参数较为简单，故未使用redux，直接采用props传递简单的参数
     3. 页面跳转使用history.push实现，使用前端路由切换。

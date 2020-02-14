@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2019-11-24 15:45:22
- * @LastEditTime: 2019-11-28 21:03:56
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-01-12 12:35:07
+ * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \order-system\frontend\src\App.js
  */
@@ -15,11 +15,12 @@ import RestaurantManage from './RestaurantManage';
 import Login from './Login';
 import HomePage from './HomePage';
 import history from './history';
-import OrderSuccess from './OrderSuccess';
+import OrderSuccess from './OrderSuccessed';
 import Register from './Register';
 
 //element-io组件
 import 'element-theme-default';
+import 'antd/dist/antd.css';
 
 //用户侧：
 // 扫码进入页面，选择人数: /landing/restaurant/r/:rid/desk/:did

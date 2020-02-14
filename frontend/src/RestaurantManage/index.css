@@ -1,0 +1,26 @@
+.restaurant-manage{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.restaurant-manage .logo{
+  color: #fff;
+  text-align: center;
+  height: 32px;
+  line-height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+.restaurant-header{
+  position: relative;
+}
+.restaurant-manage .user-login{
+  position: absolute;
+  top: 0px;
+  right: 30px;
+}
+.restaurant-manage .logout{
+  color: #aaa;
+  margin-left: 10px;
+  /* line-height: 80px; */
+}

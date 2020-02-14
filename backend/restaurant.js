@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2019-11-24 09:41:57
- * @LastEditTime: 2019-11-28 20:50:59
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-02-12 21:15:22
+ * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \order-system\backend\restaurant.js
  */
@@ -23,7 +23,7 @@ io.restaurant.on('connection', socket => {
 })
   
 io.desk.on('connection', socket => {
-    console.log('desk client in')
+    console.log(socket.handshake.query)
     //判断是否有房间，无则关闭连接
     var desk = socket.handshake.query.desk
     if (!desk) {
@@ -44,6 +44,7 @@ io.desk.on('connection', socket => {
     socket.on('new food', info => {
         console.log(info);
         //检查是否为已点菜品
+        console.log(deskCartMap);
         var foodAry = deskCartMap.get(info.desk)
         var idx = foodAry.findIndex(it => it.food.id === info.food.id)
         //是新菜则添加一个菜品对象，是已点菜则修改数量，数量为0则删除
@@ -184,6 +185,15 @@ app.route('/restaurant/:rid/food')
 
 //对某个餐厅的某个菜品进行管理
 app.route('/restaurant/:rid/food/:fid')
+    .get(async (req, res, next) => {
+        //获取某个菜品详情
+        const fid = req.params.fid;
+        const userid = req.cookies.userid;
+        const currentFood = await db.get('SELETE * FROM foods WHERE id=? AND rid=?', fid, userid);
+        if(currentFood){
+            res.json(currentFood);
+        }
+    })
     .delete(async (req, res, next) => {
         //删除某个菜品
         var fid = req.params.fid;
