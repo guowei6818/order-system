@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-02-13 10:31:00
- * @LastEditTime : 2020-02-13 13:58:35
+ * @LastEditTime : 2020-02-14 19:45:38
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \order-system\frontend\src\FoodManage\FoodItem.js
@@ -15,7 +15,8 @@ import './index.css'
 import { Button, Modal, message, Form } from 'antd';
 
 const FoodItem = (props) => {
-  const {food, onDelete} = props;
+  const {food, onDelete, form} = props;
+  const { rid, id } = food;
   const [foodProps, setFoodProps] = useState({
     modalVisible: false,
     name: food.name,
@@ -37,12 +38,12 @@ const FoodItem = (props) => {
     setModalVisible()
   }
   const deleteFood = () => {
-    api.delete(`/restaurant/${food.rid}/food/${food.id}`).then(() => {
+    api.delete(`/restaurant/${rid}/food/${id}`).then(() => {
       onDelete(food.id)
     })
   }
   const setOffLine = () => {
-    api.put(`/restaurant/${food.rid}/food/${food.id}`,{
+    api.put(`/restaurant/${rid}/food/${id}`,{
       ...foodProps,
       status: 'off'
     }).then(res => {
@@ -50,7 +51,7 @@ const FoodItem = (props) => {
     })
   }
   const setOnLine = () => {
-    api.put(`/restaurant/${food.rid}/food/${food.id}`,{
+    api.put(`/restaurant/${rid}/food/${id}`,{
       ...foodProps,
       status: 'on'
     }).then(res => {
@@ -77,8 +78,7 @@ const FoodItem = (props) => {
         let val = result[key];
         fd.append(key, val);
       }
-      const { rid } = food.rid;
-      api.put(`/restaurant/${rid}/food/${food.id}`, fd).then(res => {
+      api.put(`/restaurant/${rid}/food/${id}`, fd).then(res => {
         setModalVisible()
         setFoodInfo(res.data)
         if(res.status === 200){
@@ -126,7 +126,7 @@ const FoodItem = (props) => {
           onCancel={setModalVisible}
         >
           <Form {...formItemLayout}>
-            <ChangeFood foodInfo={food} imgChange={imgChange} form={props.form} />
+            <ChangeFood foodInfo={food} imgChange={imgChange} form={form} />
           </Form>
         </Modal>
       }

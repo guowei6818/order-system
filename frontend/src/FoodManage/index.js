@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-24 16:52:36
- * @LastEditTime : 2020-02-14 15:44:25
+ * @LastEditTime : 2020-02-14 21:20:20
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \order-system\frontend\src\FoodManage.js
@@ -12,7 +12,7 @@ import FoodItem from './FoodItem';
 import api from '../api';
 import './index.css'
 import { foodCategory } from '../Common'
-import { Menu, Button } from 'antd';
+import { Menu, Button, Icon } from 'antd';
 
 export default withRouter(function(props){
   var [foods, setFoods] = useState({
@@ -55,7 +55,11 @@ export default withRouter(function(props){
   return (
     <div>
       <Menu mode="horizontal" defaultSelectedKeys={['1']} onClick={onSelect}>
-        <Menu.Item key="0"><Button type="primary" onClick={addFood}>添加菜品</Button></Menu.Item>
+        <Menu.Item key="0">
+          <Button type="primary" onClick={addFood}>
+            <Icon type="plus" style={{marginRight: '0px'}} />添加菜品
+          </Button>
+        </Menu.Item>
         <Menu.Item key="1">所有菜品</Menu.Item>
         <Menu.Item key="2">家常</Menu.Item>
         <Menu.Item key="3">荤菜</Menu.Item>

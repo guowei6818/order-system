@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-24 16:52:25
- * @LastEditTime : 2020-02-14 15:48:44
+ * @LastEditTime : 2020-02-14 21:25:43
  * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \order-system\frontend\src\OrderManage.js
@@ -48,7 +48,7 @@ class OrderManage extends React.Component{
       }))
     })
 
-    var res = await api.get('/restaurant/1/order');
+    var res = await api.get(`/restaurant/${params.rid}/order`);
     this.setState(produce(state => {
       state.allOrders = res.data
     }));
