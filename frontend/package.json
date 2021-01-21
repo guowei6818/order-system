@@ -8,7 +8,7 @@
     "element-react": "^1.4.34",
     "element-theme-default": "^1.4.13",
     "history": "^4.10.1",
-    "immer": "^5.0.0",
+    "immer": "^8.0.1",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
